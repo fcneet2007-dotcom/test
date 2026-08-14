@@ -22,6 +22,7 @@ const COLOR = {
   saturday: "DEEAF6",
   sunday: "FBE4E4",
   allDay: "FFF2CC",
+  task: "E2F3F9", // ToDo リストのタスク（カレンダー上の水色に合わせる）
   border: "BFBFBF",
   muted: "808080",
 };
@@ -91,14 +92,16 @@ function eventRows(day) {
   }
 
   return day.events.map((event, index) => {
-    const fill = event.all_day ? COLOR.allDay : undefined;
+    const fill = event.is_task ? COLOR.task : event.all_day ? COLOR.allDay : undefined;
     const label = event.calendar ? `[${event.calendar}]` : "";
     const detail = [label, event.location, event.note].filter(Boolean).join(" / ");
+    // タスクは頭に □ を付けて、当日チェックできるようにする
+    const title = event.is_task ? `□ ${event.summary}` : event.summary;
     return new TableRow({
       children: [
         ...(index === 0 ? [dateCell(day, day.events.length)] : []),
         cell([para(event.time, { alignment: AlignmentType.CENTER, size: 18 })], { width: COLS[1], fill }),
-        cell([para(event.summary, { bold: event.all_day })], { width: COLS[2], fill,
+        cell([para(title, { bold: event.all_day })], { width: COLS[2], fill,
           verticalAlign: VerticalAlign.CENTER }),
         cell([para(detail, { size: 18, color: detail ? undefined : COLOR.muted })], { width: COLS[3], fill }),
       ],
@@ -140,7 +143,8 @@ const doc = new Document({
       para(`Google カレンダーより作成 ／ 予定 ${data.total_events} 件 ／ 作成日 ${data.generated_at}`,
         { alignment: AlignmentType.CENTER, size: 18, color: COLOR.muted, after: 180 }),
       table,
-      para("※ 網掛けの行は終日予定です。土曜は青、日曜・祝日は赤で表示しています。",
+      para("※ 黄色の行は終日予定、水色の行は ToDo リストのタスク（□ 付き）です。"
+        + "土曜は青、日曜・祝日は赤で表示しています。",
         { size: 16, color: COLOR.muted, before: 160 }),
     ],
   }],

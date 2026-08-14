@@ -17,6 +17,7 @@ Google カレンダーの予定を Word 文書（.docx）の月間予定表に�
 | 予定 | 予定のタイトル（終日予定は太字） |
 | 場所・備考 | 場所と説明文。主カレンダー以外の予定は `[domo Todo]` のようにカレンダー名を表示。Gmail 由来の定型文・URL は除去 |
 
+- 水色の行は Google ToDo リストのタスクで、タイトルの頭に `□` が付きます。
 - 1 日分の予定は日付セルを縦結合してまとめています。
 - 見出し行は各ページの先頭で繰り返されます（A4 縦・余白 0.5 インチ）。
 - 複数日の終日予定（休み・出勤停止など）は該当する各日に表示されます。
@@ -76,3 +77,29 @@ node scripts/generate_schedule_docx.js output/day_2026-08-15.json "output/2026�
 
 見出しは `2026年8月15日(土) 予定表` のように曜日つきになります。
 `--generated-at 2026-08-15` で「作成日」の表記を指定することもできます。
+
+## Google ToDo リストのタスクを含める
+
+Google ToDo リスト（カレンダー画面にチェックボックス付きで並ぶタスク）は
+カレンダーの「予定」とは別のデータで、`list_events` では取得できません。
+次の形式の JSON を用意して `--tasks` で渡すと、予定と同じ表に時刻順で差し込まれます。
+
+```json
+{
+  "list": "ToDo",
+  "tasks": [
+    { "title": "サンプル", "due": "2026-08-15T11:00:00+09:00", "notes": "補足" },
+    { "title": "時刻なしのタスク", "due": "2026-08-15" }
+  ]
+}
+```
+
+```bash
+python3 scripts/build_schedule_data.py --day 2026-08-15 \
+  --events today.json todo_calendar.json --tasks todo_tasks.json \
+  --primary "fcneet2007@gmail.com" --out output/day_2026-08-15.json
+```
+
+- `due` に時刻があればその時刻の行に、日付だけなら時間欄が `ToDo` の行になります。
+- `status` が `completed` のタスクは出力しません。
+- タスクの行は水色で塗り、タイトルの頭に `□` を付けます。

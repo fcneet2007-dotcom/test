@@ -7,9 +7,9 @@
         --events page1.json page2.json --holidays holiday.json \
         --out output/schedule_data.json
 
-    # 1 日分の予定表
-    python scripts/build_schedule_data.py --day 2026-08-14 \
-        --events today.json --out output/day_data.json
+    # 1 日分の予定表（Google ToDo リストのタスクも含める）
+    python scripts/build_schedule_data.py --day 2026-08-15 \
+        --events today.json --tasks todo.json --out output/day_data.json
 """
 
 import argparse
@@ -32,6 +32,49 @@ def load_events(paths):
     return events
 
 
+def load_tasks(paths):
+    """Google ToDo リストのタスクを予定と同じ形に整形する。
+
+    受け付ける JSON:
+        {"list": "リスト名", "tasks": [
+            {"title": "...", "due": "2026-08-15T10:00:00+09:00", "notes": "..."},
+            {"title": "...", "due": "2026-08-15"}
+        ]}
+    `due` に時刻があればその時刻、日付だけなら時間欄を「ToDo」として扱う。
+    `status` が "completed" のタスクは除外する。
+    """
+    items = []
+    for path in paths:
+        with open(path, encoding="utf-8") as f:
+            payload = json.load(f)
+        list_name = payload.get("list", "ToDo")
+        for task in payload.get("tasks", []):
+            if task.get("status") == "completed":
+                continue
+            due = task.get("due", "")
+            if not due:
+                continue
+            day = parse_day(due)
+            if len(due) > 10 and "T" in due:
+                due_dt = datetime.fromisoformat(due)
+                time_label = f"{due_dt:%H:%M}"
+                sort_key = due_dt.hour * 60 + due_dt.minute
+            else:
+                time_label, sort_key = "ToDo", -1
+            items.append({
+                "days": [day],
+                "time": time_label,
+                "all_day": False,
+                "is_task": True,
+                "sort_key": sort_key,
+                "summary": task.get("title", "(無題)"),
+                "location": "",
+                "calendar": list_name,
+                "note": clean_note(task.get("notes", "")),
+            })
+    return items
+
+
 def parse_day(value):
     """'2026-08-01T00:00:00Z' / '2026-08-01' のどちらでも日付として読む。"""
     return date.fromisoformat(value[:10])
@@ -52,6 +95,7 @@ def normalize(event):
         if first != last:
             label = f"終日({first.month}/{first.day}〜{last.month}/{last.day})"
         return {"days": days, "time": label, "all_day": True, "sort_key": -1,
+                "is_task": False,
                 "summary": event.get("summary", "(無題)"),
                 "location": event.get("location", ""),
                 "calendar": event.get("_calendar", ""),
@@ -62,6 +106,7 @@ def normalize(event):
     return {"days": [start_dt.date()],
             "time": f"{start_dt:%H:%M}〜{end_dt:%H:%M}",
             "all_day": False,
+            "is_task": False,
             "sort_key": start_dt.hour * 60 + start_dt.minute,
             "summary": event.get("summary", "(無題)"),
             "location": event.get("location", ""),
@@ -83,7 +128,7 @@ def clean_note(description):
 
 
 def build(year, month, event_paths, holiday_paths, only_day=None,
-          primary="", generated_at=""):
+          primary="", generated_at="", task_paths=()):
     holidays = {}
     for holiday in load_events(holiday_paths):
         for day in normalize(holiday)["days"]:
@@ -101,6 +146,11 @@ def build(year, month, event_paths, holiday_paths, only_day=None,
             if day.year == year and day.month == month:
                 by_day.setdefault(day, []).append(item)
 
+    for item in load_tasks(task_paths):
+        for day in item["days"]:
+            if day.year == year and day.month == month:
+                by_day.setdefault(day, []).append(item)
+
     day_range = [only_day.day] if only_day else range(1, calendar.monthrange(year, month)[1] + 1)
     days = []
     for day_num in day_range:
@@ -108,7 +158,7 @@ def build(year, month, event_paths, holiday_paths, only_day=None,
         items = sorted(by_day.get(day, []), key=lambda i: (i["sort_key"], i["summary"]))
         seen, unique = set(), []
         for item in items:
-            key = (item["time"], item["summary"])
+            key = (item["time"], item["summary"], item["is_task"])
             if key not in seen:
                 seen.add(key)
                 unique.append(item)
@@ -146,6 +196,8 @@ def main():
     parser.add_argument("--events", nargs="+", required=True,
                         help="list_events のレスポンス JSON。複数カレンダー・複数ページを並べられる")
     parser.add_argument("--holidays", nargs="*", default=[])
+    parser.add_argument("--tasks", nargs="*", default=[],
+                        help="Google ToDo リストのタスク JSON")
     parser.add_argument("--primary", default="",
                         help="主カレンダー名。これ以外のカレンダーの予定には備考に名前を出す")
     parser.add_argument("--generated-at", default="", help="作成日の表記 (既定: 実行日)")
@@ -161,7 +213,7 @@ def main():
         parser.error("--day か --year/--month のどちらかを指定してください")
 
     data = build(year, month, args.events, args.holidays, only_day,
-                 args.primary, args.generated_at)
+                 args.primary, args.generated_at, args.tasks)
     with open(args.out, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
     print(f"{args.out}: {data['total_events']} 件 / {len(data['days'])} 日")
