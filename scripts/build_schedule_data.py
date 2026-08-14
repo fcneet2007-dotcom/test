@@ -21,10 +21,14 @@ WEEKDAY_JA = ["月", "火", "水", "木", "金", "土", "日"]
 
 
 def load_events(paths):
+    """複数のカレンダーの JSON を読み、各予定に取得元カレンダー名を付けて返す。"""
     events = []
     for path in paths:
         with open(path, encoding="utf-8") as f:
-            events.extend(json.load(f).get("events", []))
+            payload = json.load(f)
+        source = payload.get("summary", "")
+        for event in payload.get("events", []):
+            events.append({**event, "_calendar": source})
     return events
 
 
@@ -50,6 +54,7 @@ def normalize(event):
         return {"days": days, "time": label, "all_day": True, "sort_key": -1,
                 "summary": event.get("summary", "(無題)"),
                 "location": event.get("location", ""),
+                "calendar": event.get("_calendar", ""),
                 "note": clean_note(event.get("description", ""))}
 
     start_dt = datetime.fromisoformat(start["dateTime"])
@@ -60,6 +65,7 @@ def normalize(event):
             "sort_key": start_dt.hour * 60 + start_dt.minute,
             "summary": event.get("summary", "(無題)"),
             "location": event.get("location", ""),
+            "calendar": event.get("_calendar", ""),
             "note": clean_note(event.get("description", ""))}
 
 
@@ -76,7 +82,8 @@ def clean_note(description):
     return text if len(text) <= 80 else text[:79] + "…"
 
 
-def build(year, month, event_paths, holiday_paths, only_day=None):
+def build(year, month, event_paths, holiday_paths, only_day=None,
+          primary="", generated_at=""):
     holidays = {}
     for holiday in load_events(holiday_paths):
         for day in normalize(holiday)["days"]:
@@ -87,6 +94,9 @@ def build(year, month, event_paths, holiday_paths, only_day=None):
         if event.get("status") == "cancelled":
             continue
         item = normalize(event)
+        # 主カレンダーの予定にはカレンダー名を出さない（他カレンダーのみ区別する）
+        if item["calendar"] == primary:
+            item["calendar"] = ""
         for day in item["days"]:
             if day.year == year and day.month == month:
                 by_day.setdefault(day, []).append(item)
@@ -121,7 +131,7 @@ def build(year, month, event_paths, holiday_paths, only_day=None):
         "year": year,
         "month": month,
         "title": title,
-        "generated_at": datetime.now().strftime("%Y-%m-%d"),
+        "generated_at": generated_at or datetime.now().strftime("%Y-%m-%d"),
         "total_events": total,
         "busiest": max(days, key=lambda d: len(d["events"]))["date"] if total else "",
         "days": days,
@@ -133,8 +143,12 @@ def main():
     parser.add_argument("--year", type=int)
     parser.add_argument("--month", type=int)
     parser.add_argument("--day", help="1 日分だけ出力する場合の日付 (YYYY-MM-DD)")
-    parser.add_argument("--events", nargs="+", required=True)
+    parser.add_argument("--events", nargs="+", required=True,
+                        help="list_events のレスポンス JSON。複数カレンダー・複数ページを並べられる")
     parser.add_argument("--holidays", nargs="*", default=[])
+    parser.add_argument("--primary", default="",
+                        help="主カレンダー名。これ以外のカレンダーの予定には備考に名前を出す")
+    parser.add_argument("--generated-at", default="", help="作成日の表記 (既定: 実行日)")
     parser.add_argument("--out", required=True)
     args = parser.parse_args()
 
@@ -146,7 +160,8 @@ def main():
     else:
         parser.error("--day か --year/--month のどちらかを指定してください")
 
-    data = build(year, month, args.events, args.holidays, only_day)
+    data = build(year, month, args.events, args.holidays, only_day,
+                 args.primary, args.generated_at)
     with open(args.out, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
     print(f"{args.out}: {data['total_events']} 件 / {len(data['days'])} 日")

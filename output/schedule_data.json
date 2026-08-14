@@ -1,8 +1,9 @@
 {
   "year": 2026,
   "month": 8,
-  "generated_at": "2026-08-14",
-  "total_events": 117,
+  "title": "2026年8月 予定表",
+  "generated_at": "2026-08-15",
+  "total_events": 124,
   "busiest": "2026-08-06",
   "days": [
     {
@@ -19,6 +20,7 @@
           "sort_key": -1,
           "summary": "経費締め",
           "location": "",
+          "calendar": "",
           "note": ""
         },
         {
@@ -27,6 +29,7 @@
           "sort_key": 480,
           "summary": "サザンクロス郵送",
           "location": "",
+          "calendar": "",
           "note": ""
         },
         {
@@ -35,6 +38,7 @@
           "sort_key": 540,
           "summary": "経費確認",
           "location": "",
+          "calendar": "",
           "note": ""
         },
         {
@@ -43,6 +47,7 @@
           "sort_key": 600,
           "summary": "キミエ福津103電話",
           "location": "",
+          "calendar": "",
           "note": ""
         }
       ]
@@ -61,6 +66,7 @@
           "sort_key": -1,
           "summary": "精算管理表入力",
           "location": "",
+          "calendar": "",
           "note": ""
         },
         {
@@ -69,6 +75,7 @@
           "sort_key": 720,
           "summary": "始末書部長送る",
           "location": "",
+          "calendar": "",
           "note": ""
         },
         {
@@ -77,6 +84,7 @@
           "sort_key": 720,
           "summary": "月次作成",
           "location": "",
+          "calendar": "",
           "note": ""
         },
         {
@@ -85,6 +93,7 @@
           "sort_key": 1080,
           "summary": "香椎飲み会",
           "location": "",
+          "calendar": "",
           "note": ""
         }
       ]
@@ -103,6 +112,7 @@
           "sort_key": -1,
           "summary": "店長会議",
           "location": "",
+          "calendar": "",
           "note": ""
         },
         {
@@ -111,6 +121,7 @@
           "sort_key": 570,
           "summary": "キミエ福津精算メール",
           "location": "",
+          "calendar": "",
           "note": ""
         },
         {
@@ -119,6 +130,7 @@
           "sort_key": 690,
           "summary": "本部長面談",
           "location": "",
+          "calendar": "",
           "note": ""
         },
         {
@@ -127,6 +139,7 @@
           "sort_key": 840,
           "summary": "フォレストファーム入居前チェック",
           "location": "",
+          "calendar": "",
           "note": ""
         },
         {
@@ -135,6 +148,7 @@
           "sort_key": 900,
           "summary": "フォレストファーム302入居前チェック",
           "location": "",
+          "calendar": "",
           "note": ""
         },
         {
@@ -143,6 +157,7 @@
           "sort_key": 1080,
           "summary": "ロジュマン三苫202井口",
           "location": "",
+          "calendar": "",
           "note": ""
         },
         {
@@ -151,6 +166,7 @@
           "sort_key": 1080,
           "summary": "店長会議",
           "location": "",
+          "calendar": "",
           "note": ""
         }
       ]
@@ -169,6 +185,7 @@
           "sort_key": -1,
           "summary": "休み",
           "location": "",
+          "calendar": "",
           "note": ""
         },
         {
@@ -177,6 +194,7 @@
           "sort_key": -1,
           "summary": "公休",
           "location": "",
+          "calendar": "",
           "note": ""
         },
         {
@@ -185,6 +203,7 @@
           "sort_key": -1,
           "summary": "記念日",
           "location": "",
+          "calendar": "",
           "note": ""
         },
         {
@@ -193,6 +212,7 @@
           "sort_key": 660,
           "summary": "歯医者",
           "location": "",
+          "calendar": "",
           "note": ""
         }
       ]
@@ -211,6 +231,7 @@
           "sort_key": -1,
           "summary": "休み",
           "location": "",
+          "calendar": "",
           "note": ""
         },
         {
@@ -219,6 +240,7 @@
           "sort_key": -1,
           "summary": "有休（全国定休日・創立記念日）",
           "location": "",
+          "calendar": "",
           "note": ""
         },
         {
@@ -227,6 +249,7 @@
           "sort_key": 440,
           "summary": "7:22筑紫丘",
           "location": "",
+          "calendar": "",
           "note": ""
         }
       ]
@@ -245,6 +268,7 @@
           "sort_key": 480,
           "summary": "登録確認",
           "location": "",
+          "calendar": "",
           "note": ""
         },
         {
@@ -253,6 +277,7 @@
           "sort_key": 485,
           "summary": "御所ヶ谷解約退去確認",
           "location": "",
+          "calendar": "",
           "note": ""
         },
         {
@@ -261,6 +286,7 @@
           "sort_key": 540,
           "summary": "堀田さん精算書作成",
           "location": "",
+          "calendar": "",
           "note": ""
         },
         {
@@ -269,6 +295,7 @@
           "sort_key": 600,
           "summary": "岡村部長稼働率メール",
           "location": "",
+          "calendar": "",
           "note": ""
         },
         {
@@ -277,6 +304,7 @@
           "sort_key": 600,
           "summary": "藤森電話",
           "location": "",
+          "calendar": "",
           "note": ""
         },
         {
@@ -285,6 +313,7 @@
           "sort_key": 660,
           "summary": "みらいパートナーズ",
           "location": "",
+          "calendar": "",
           "note": ""
         },
         {
@@ -293,6 +322,16 @@
           "sort_key": 660,
           "summary": "柳田電話",
           "location": "",
+          "calendar": "",
+          "note": ""
+        },
+        {
+          "time": "13:00〜14:00",
+          "all_day": false,
+          "sort_key": 780,
+          "summary": "ハミングタウンgtn",
+          "location": "",
+          "calendar": "domo Todo",
           "note": ""
         },
         {
@@ -301,6 +340,7 @@
           "sort_key": 780,
           "summary": "ログハウスオーナー13:00",
           "location": "",
+          "calendar": "",
           "note": ""
         },
         {
@@ -309,6 +349,7 @@
           "sort_key": 780,
           "summary": "中山さん電話",
           "location": "",
+          "calendar": "",
           "note": ""
         },
         {
@@ -317,6 +358,7 @@
           "sort_key": 840,
           "summary": "トラック移動",
           "location": "",
+          "calendar": "",
           "note": ""
         },
         {
@@ -325,6 +367,7 @@
           "sort_key": 900,
           "summary": "堀田さん電話",
           "location": "",
+          "calendar": "",
           "note": ""
         },
         {
@@ -333,6 +376,7 @@
           "sort_key": 960,
           "summary": "コスモス精算",
           "location": "",
+          "calendar": "",
           "note": ""
         },
         {
@@ -341,6 +385,7 @@
           "sort_key": 960,
           "summary": "ポルト訪問",
           "location": "",
+          "calendar": "",
           "note": ""
         },
         {
@@ -349,6 +394,7 @@
           "sort_key": 1020,
           "summary": "メゾンドゥコスモス契約書作る",
           "location": "",
+          "calendar": "",
           "note": ""
         },
         {
@@ -357,6 +403,7 @@
           "sort_key": 1080,
           "summary": "クロードコード作成のための資料作成",
           "location": "",
+          "calendar": "",
           "note": ""
         }
       ]
@@ -375,6 +422,7 @@
           "sort_key": -1,
           "summary": "月次会議",
           "location": "",
+          "calendar": "",
           "note": ""
         },
         {
@@ -383,6 +431,7 @@
           "sort_key": 460,
           "summary": "会議準備",
           "location": "",
+          "calendar": "",
           "note": ""
         },
         {
@@ -391,6 +440,7 @@
           "sort_key": 480,
           "summary": "桜並木契約書表示作る",
           "location": "",
+          "calendar": "",
           "note": ""
         },
         {
@@ -399,6 +449,7 @@
           "sort_key": 540,
           "summary": "パソコン持って行く",
           "location": "",
+          "calendar": "",
           "note": ""
         },
         {
@@ -407,6 +458,7 @@
           "sort_key": 540,
           "summary": "月次貼り付ける",
           "location": "",
+          "calendar": "",
           "note": ""
         },
         {
@@ -415,6 +467,7 @@
           "sort_key": 600,
           "summary": "福岡南北鹿児島管理G 月次報告会議",
           "location": "",
+          "calendar": "",
           "note": "終了時刻はシフト表に記載なし（仮）"
         },
         {
@@ -423,6 +476,7 @@
           "sort_key": 780,
           "summary": "メゾンドゥ残置物撤去",
           "location": "",
+          "calendar": "",
           "note": ""
         },
         {
@@ -431,6 +485,7 @@
           "sort_key": 780,
           "summary": "福岡南北鹿児島管理G 会議",
           "location": "GGソーラービル 中会議室",
+          "calendar": "",
           "note": ""
         },
         {
@@ -439,6 +494,7 @@
           "sort_key": 1080,
           "summary": "田中様戸建表紙作る",
           "location": "",
+          "calendar": "",
           "note": ""
         }
       ]
@@ -457,6 +513,7 @@
           "sort_key": -1,
           "summary": "休み",
           "location": "",
+          "calendar": "",
           "note": ""
         },
         {
@@ -465,6 +522,16 @@
           "sort_key": -1,
           "summary": "出勤停止",
           "location": "",
+          "calendar": "",
+          "note": ""
+        },
+        {
+          "time": "10:55〜11:55",
+          "all_day": false,
+          "sort_key": 655,
+          "summary": "中山さん電話",
+          "location": "",
+          "calendar": "domo Todo",
           "note": ""
         },
         {
@@ -473,6 +540,16 @@
           "sort_key": 660,
           "summary": "SEC吉田電話",
           "location": "",
+          "calendar": "",
+          "note": ""
+        },
+        {
+          "time": "13:00〜14:00",
+          "all_day": false,
+          "sort_key": 780,
+          "summary": "サザンクロスオーナーと入居者訪問",
+          "location": "",
+          "calendar": "domo Todo",
           "note": ""
         },
         {
@@ -481,6 +558,7 @@
           "sort_key": 780,
           "summary": "サザン山北やり直し",
           "location": "",
+          "calendar": "",
           "note": ""
         },
         {
@@ -489,6 +567,7 @@
           "sort_key": 1080,
           "summary": "山北やり直しどうする？9月から？10月から",
           "location": "",
+          "calendar": "",
           "note": ""
         }
       ]
@@ -507,6 +586,7 @@
           "sort_key": -1,
           "summary": "休み",
           "location": "",
+          "calendar": "",
           "note": ""
         },
         {
@@ -515,6 +595,7 @@
           "sort_key": -1,
           "summary": "出勤停止",
           "location": "",
+          "calendar": "",
           "note": ""
         },
         {
@@ -523,6 +604,16 @@
           "sort_key": -1,
           "summary": "精算管理表入力",
           "location": "",
+          "calendar": "",
+          "note": ""
+        },
+        {
+          "time": "09:30〜10:30",
+          "all_day": false,
+          "sort_key": 570,
+          "summary": "新宮店にサンシャトー持っていく",
+          "location": "",
+          "calendar": "domo Todo",
           "note": ""
         },
         {
@@ -531,6 +622,16 @@
           "sort_key": 660,
           "summary": "グランドアベニュー剪定駐車場1番奥",
           "location": "",
+          "calendar": "",
+          "note": ""
+        },
+        {
+          "time": "11:00〜12:00",
+          "all_day": false,
+          "sort_key": 660,
+          "summary": "葉月コーポ田中オーナー訪問",
+          "location": "",
+          "calendar": "domo Todo",
           "note": ""
         },
         {
@@ -539,6 +640,7 @@
           "sort_key": 720,
           "summary": "ウチハク販売",
           "location": "",
+          "calendar": "",
           "note": ""
         },
         {
@@ -547,6 +649,7 @@
           "sort_key": 720,
           "summary": "平山代理に森田オーナーの電話番号聞く",
           "location": "",
+          "calendar": "",
           "note": ""
         }
       ]
@@ -565,6 +668,7 @@
           "sort_key": -1,
           "summary": "休み",
           "location": "",
+          "calendar": "",
           "note": ""
         },
         {
@@ -573,6 +677,7 @@
           "sort_key": -1,
           "summary": "出勤停止",
           "location": "",
+          "calendar": "",
           "note": ""
         }
       ]
@@ -591,6 +696,7 @@
           "sort_key": -1,
           "summary": "休み",
           "location": "",
+          "calendar": "",
           "note": ""
         },
         {
@@ -599,6 +705,7 @@
           "sort_key": -1,
           "summary": "出勤停止",
           "location": "",
+          "calendar": "",
           "note": ""
         },
         {
@@ -607,6 +714,7 @@
           "sort_key": -1,
           "summary": "鍵は俺",
           "location": "",
+          "calendar": "",
           "note": ""
         }
       ]
@@ -625,6 +733,7 @@
           "sort_key": -1,
           "summary": "Stay at 嬉野温泉　茶心の宿　和楽園",
           "location": "嬉野市嬉野町下野甲33, 843-0302佐賀県, 日本",
+          "calendar": "",
           "note": ""
         },
         {
@@ -633,6 +742,7 @@
           "sort_key": -1,
           "summary": "休み",
           "location": "",
+          "calendar": "",
           "note": ""
         },
         {
@@ -641,6 +751,7 @@
           "sort_key": -1,
           "summary": "休み",
           "location": "",
+          "calendar": "",
           "note": ""
         },
         {
@@ -649,6 +760,7 @@
           "sort_key": -1,
           "summary": "出勤停止",
           "location": "",
+          "calendar": "",
           "note": ""
         }
       ]
@@ -667,6 +779,7 @@
           "sort_key": -1,
           "summary": "Stay at 嬉野温泉　茶心の宿　和楽園",
           "location": "嬉野市嬉野町下野甲33, 843-0302佐賀県, 日本",
+          "calendar": "",
           "note": ""
         },
         {
@@ -675,6 +788,7 @@
           "sort_key": -1,
           "summary": "休み",
           "location": "",
+          "calendar": "",
           "note": ""
         },
         {
@@ -683,6 +797,7 @@
           "sort_key": -1,
           "summary": "公休",
           "location": "",
+          "calendar": "",
           "note": ""
         }
       ]
@@ -701,6 +816,7 @@
           "sort_key": -1,
           "summary": "休み",
           "location": "",
+          "calendar": "",
           "note": ""
         },
         {
@@ -709,6 +825,7 @@
           "sort_key": -1,
           "summary": "公休",
           "location": "",
+          "calendar": "",
           "note": ""
         },
         {
@@ -717,6 +834,7 @@
           "sort_key": 600,
           "summary": "桜並木202205八月の家賃はどうなってる？",
           "location": "",
+          "calendar": "",
           "note": ""
         }
       ]
@@ -735,6 +853,7 @@
           "sort_key": -1,
           "summary": "生き延びてたら情報獲得しよう",
           "location": "",
+          "calendar": "",
           "note": ""
         },
         {
@@ -743,6 +862,7 @@
           "sort_key": 480,
           "summary": "ほなみ川口エポス",
           "location": "",
+          "calendar": "",
           "note": ""
         },
         {
@@ -751,6 +871,7 @@
           "sort_key": 480,
           "summary": "コーポセブン306精算",
           "location": "",
+          "calendar": "",
           "note": ""
         },
         {
@@ -759,6 +880,7 @@
           "sort_key": 480,
           "summary": "桜ハイツの町内会費探す",
           "location": "",
+          "calendar": "",
           "note": ""
         },
         {
@@ -767,6 +889,7 @@
           "sort_key": 540,
           "summary": "キノコダテ郵送",
           "location": "",
+          "calendar": "",
           "note": ""
         },
         {
@@ -775,6 +898,7 @@
           "sort_key": 540,
           "summary": "ドムール花見SEC解約",
           "location": "",
+          "calendar": "",
           "note": ""
         },
         {
@@ -783,6 +907,7 @@
           "sort_key": 540,
           "summary": "ロデスマン請求書メール",
           "location": "",
+          "calendar": "",
           "note": ""
         },
         {
@@ -791,6 +916,7 @@
           "sort_key": 555,
           "summary": "シーコートサチ売却情報提供出す",
           "location": "",
+          "calendar": "",
           "note": ""
         },
         {
@@ -799,6 +925,7 @@
           "sort_key": 600,
           "summary": "グリーンタウン浄化槽やる田中電話必ず",
           "location": "",
+          "calendar": "",
           "note": ""
         },
         {
@@ -807,6 +934,7 @@
           "sort_key": 720,
           "summary": "メイプルタウン2車の出入り口雑草",
           "location": "",
+          "calendar": "",
           "note": ""
         },
         {
@@ -815,6 +943,7 @@
           "sort_key": 780,
           "summary": "キノコダテ解約半年後作って郵送",
           "location": "",
+          "calendar": "",
           "note": ""
         },
         {
@@ -823,6 +952,7 @@
           "sort_key": 780,
           "summary": "ルリヤン101精算出し直し",
           "location": "",
+          "calendar": "",
           "note": ""
         },
         {
@@ -831,6 +961,16 @@
           "sort_key": 780,
           "summary": "新日本パレス伐採",
           "location": "",
+          "calendar": "",
+          "note": ""
+        },
+        {
+          "time": "16:00〜17:00",
+          "all_day": false,
+          "sort_key": 960,
+          "summary": "プランドールMオーナーLINEと更新書類郵送",
+          "location": "",
+          "calendar": "domo Todo",
           "note": ""
         }
       ]
@@ -849,6 +989,7 @@
           "sort_key": -1,
           "summary": "精算管理表入力",
           "location": "",
+          "calendar": "",
           "note": ""
         },
         {
@@ -857,6 +998,7 @@
           "sort_key": -1,
           "summary": "経費締め",
           "location": "",
+          "calendar": "",
           "note": ""
         },
         {
@@ -865,6 +1007,7 @@
           "sort_key": 720,
           "summary": "新日本パレスガス会社確認と伐採",
           "location": "",
+          "calendar": "",
           "note": ""
         }
       ]
@@ -883,6 +1026,7 @@
           "sort_key": -1,
           "summary": "公休",
           "location": "",
+          "calendar": "",
           "note": ""
         },
         {
@@ -891,6 +1035,7 @@
           "sort_key": 1320,
           "summary": "休み",
           "location": "",
+          "calendar": "",
           "note": ""
         }
       ]
@@ -909,6 +1054,7 @@
           "sort_key": -1,
           "summary": "休み",
           "location": "",
+          "calendar": "",
           "note": ""
         },
         {
@@ -917,6 +1063,7 @@
           "sort_key": -1,
           "summary": "公休",
           "location": "",
+          "calendar": "",
           "note": ""
         }
       ]
@@ -935,6 +1082,7 @@
           "sort_key": -1,
           "summary": "業者会議",
           "location": "",
+          "calendar": "",
           "note": ""
         },
         {
@@ -943,6 +1091,7 @@
           "sort_key": 570,
           "summary": "福岡南北 巡回業者報告会議",
           "location": "",
+          "calendar": "",
           "note": "終了時刻はシフト表に記載なし（仮）"
         },
         {
@@ -951,6 +1100,7 @@
           "sort_key": 780,
           "summary": "福岡南北管理G 会議",
           "location": "GGソーラービル 中会議室",
+          "calendar": "",
           "note": "終了時刻はシフト表に記載なし（仮）"
         }
       ]
@@ -969,6 +1119,7 @@
           "sort_key": -1,
           "summary": "巡回",
           "location": "",
+          "calendar": "",
           "note": ""
         },
         {
@@ -977,6 +1128,7 @@
           "sort_key": -1,
           "summary": "建物巡回",
           "location": "",
+          "calendar": "",
           "note": ""
         }
       ]
@@ -995,6 +1147,7 @@
           "sort_key": -1,
           "summary": "ジェイリース泊口へFAXする",
           "location": "",
+          "calendar": "",
           "note": ""
         },
         {
@@ -1003,6 +1156,7 @@
           "sort_key": -1,
           "summary": "休み",
           "location": "",
+          "calendar": "",
           "note": ""
         },
         {
@@ -1011,6 +1165,7 @@
           "sort_key": -1,
           "summary": "公休",
           "location": "",
+          "calendar": "",
           "note": ""
         },
         {
@@ -1019,6 +1174,7 @@
           "sort_key": 570,
           "summary": "歯医者",
           "location": "",
+          "calendar": "",
           "note": ""
         }
       ]
@@ -1037,6 +1193,7 @@
           "sort_key": -1,
           "summary": "休み",
           "location": "",
+          "calendar": "",
           "note": ""
         },
         {
@@ -1045,6 +1202,7 @@
           "sort_key": -1,
           "summary": "公休",
           "location": "",
+          "calendar": "",
           "note": ""
         }
       ]
@@ -1063,6 +1221,7 @@
           "sort_key": -1,
           "summary": "精算管理表入力",
           "location": "",
+          "calendar": "",
           "note": ""
         }
       ]
@@ -1081,6 +1240,7 @@
           "sort_key": -1,
           "summary": "休み",
           "location": "",
+          "calendar": "",
           "note": ""
         },
         {
@@ -1089,6 +1249,7 @@
           "sort_key": -1,
           "summary": "公休",
           "location": "",
+          "calendar": "",
           "note": ""
         }
       ]
@@ -1107,6 +1268,7 @@
           "sort_key": 600,
           "summary": "全国管理担当研修 Cグループ",
           "location": "",
+          "calendar": "",
           "note": ""
         },
         {
@@ -1115,6 +1277,7 @@
           "sort_key": 600,
           "summary": "管理研修",
           "location": "",
+          "calendar": "",
           "note": ""
         }
       ]
@@ -1128,11 +1291,21 @@
       "holiday": "",
       "events": [
         {
+          "time": "終日",
+          "all_day": true,
+          "sort_key": -1,
+          "summary": "三井住友VISA(NL) 引き落とし 185,563円",
+          "location": "",
+          "calendar": "domo Todo",
+          "note": "西日本シティ銀行から引き落とし お支払い金額: 185,563円"
+        },
+        {
           "time": "09:00〜10:00",
           "all_day": false,
           "sort_key": 540,
           "summary": "PayPay21000円",
           "location": "",
+          "calendar": "",
           "note": ""
         }
       ]
@@ -1151,6 +1324,7 @@
           "sort_key": -1,
           "summary": "休み",
           "location": "",
+          "calendar": "",
           "note": ""
         },
         {
@@ -1159,6 +1333,7 @@
           "sort_key": -1,
           "summary": "公休",
           "location": "",
+          "calendar": "",
           "note": ""
         }
       ]
@@ -1177,6 +1352,7 @@
           "sort_key": -1,
           "summary": "休み",
           "location": "",
+          "calendar": "",
           "note": ""
         },
         {
@@ -1185,6 +1361,7 @@
           "sort_key": -1,
           "summary": "公休",
           "location": "",
+          "calendar": "",
           "note": ""
         }
       ]
@@ -1203,6 +1380,7 @@
           "sort_key": 900,
           "summary": "ひまわり二番館201下川さん水道代差額電話",
           "location": "",
+          "calendar": "",
           "note": ""
         }
       ]
@@ -1221,6 +1399,7 @@
           "sort_key": -1,
           "summary": "精算管理表入力",
           "location": "",
+          "calendar": "",
           "note": ""
         }
       ]
@@ -1239,6 +1418,7 @@
           "sort_key": -1,
           "summary": "休み",
           "location": "",
+          "calendar": "",
           "note": ""
         },
         {
@@ -1247,6 +1427,7 @@
           "sort_key": -1,
           "summary": "公休",
           "location": "",
+          "calendar": "",
           "note": ""
         }
       ]

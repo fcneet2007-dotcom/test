@@ -92,7 +92,8 @@ function eventRows(day) {
 
   return day.events.map((event, index) => {
     const fill = event.all_day ? COLOR.allDay : undefined;
-    const detail = [event.location, event.note].filter(Boolean).join(" / ");
+    const label = event.calendar ? `[${event.calendar}]` : "";
+    const detail = [label, event.location, event.note].filter(Boolean).join(" / ");
     return new TableRow({
       children: [
         ...(index === 0 ? [dateCell(day, day.events.length)] : []),

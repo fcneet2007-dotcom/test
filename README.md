@@ -4,8 +4,9 @@ Google カレンダーの予定を Word 文書（.docx）の月間予定表に�
 
 ## 成果物
 
-- `output/2026年08月_予定表.docx` — 2026 年 8 月の予定表（予定 117 件）
-- `output/schedule_data.json` — Word 生成に使った整形済みデータ
+- `output/2026年08月_予定表.docx` — 2026 年 8 月の予定表（予定 124 件）
+- `output/2026年08月15日_予定表.docx` — 2026 年 8 月 15 日(土) の予定表
+- `output/schedule_data.json`, `output/day_2026-08-15.json` — Word 生成に使った整形済みデータ
 
 ## 予定表の構成
 
@@ -14,7 +15,7 @@ Google カレンダーの予定を Word 文書（.docx）の月間予定表に�
 | 日付 | `8/1 (土)` 形式。土曜は青、日曜・祝日は赤の網掛け。祝日名も表示 |
 | 時間 | `09:00〜10:00`、終日予定は `終日`。複数日にまたがる場合は `終日(8/8〜8/12)` |
 | 予定 | 予定のタイトル（終日予定は太字） |
-| 場所・備考 | 場所と説明文。Gmail 由来の定型文・URL は除去 |
+| 場所・備考 | 場所と説明文。主カレンダー以外の予定は `[domo Todo]` のようにカレンダー名を表示。Gmail 由来の定型文・URL は除去 |
 
 - 1 日分の予定は日付セルを縦結合してまとめています。
 - 見出し行は各ページの先頭で繰り返されます（A4 縦・余白 0.5 インチ）。
@@ -32,10 +33,14 @@ Google カレンダーの予定を Word 文書（.docx）の月間予定表に�
 
    ```bash
    python3 scripts/build_schedule_data.py --year 2026 --month 8 \
-     --events events_page1.json events_page2.json \
+     --events events_page1.json events_page2.json todo_calendar.json \
      --holidays holidays.json \
+     --primary "fcneet2007@gmail.com" \
      --out output/schedule_data.json
    ```
+
+   `--events` には複数のカレンダー・複数ページの JSON を並べられます。
+   `--primary` に指定したカレンダー以外の予定には、備考にカレンダー名が付きます。
 
 3. **Word 文書を生成する**
 
@@ -62,10 +67,12 @@ Google カレンダーの予定を Word 文書（.docx）の月間予定表に�
 `--day` を指定すると、その日だけの予定表を作成します。
 
 ```bash
-python3 scripts/build_schedule_data.py --day 2026-08-14 \
-  --events today.json --holidays holidays.json \
-  --out output/day_2026-08-14.json
-node scripts/generate_schedule_docx.js output/day_2026-08-14.json "output/2026年08月14日_予定表.docx"
+python3 scripts/build_schedule_data.py --day 2026-08-15 \
+  --events today.json todo_calendar.json --holidays holidays.json \
+  --primary "fcneet2007@gmail.com" \
+  --out output/day_2026-08-15.json
+node scripts/generate_schedule_docx.js output/day_2026-08-15.json "output/2026年08月15日_予定表.docx"
 ```
 
-見出しは `2026年8月14日(金) 予定表` のように曜日つきになります。
+見出しは `2026年8月15日(土) 予定表` のように曜日つきになります。
+`--generated-at 2026-08-15` で「作成日」の表記を指定することもできます。
