@@ -1,0 +1,44 @@
+{
+  "year": 2026,
+  "month": 8,
+  "title": "2026年8月14日(金) 予定表",
+  "generated_at": "2026-08-14",
+  "total_events": 3,
+  "busiest": "2026-08-14",
+  "days": [
+    {
+      "date": "2026-08-14",
+      "day": 14,
+      "weekday": "金",
+      "is_saturday": false,
+      "is_sunday": false,
+      "holiday": "",
+      "events": [
+        {
+          "time": "終日(8/12〜8/14)",
+          "all_day": true,
+          "sort_key": -1,
+          "summary": "休み",
+          "location": "",
+          "note": ""
+        },
+        {
+          "time": "終日(8/13〜8/14)",
+          "all_day": true,
+          "sort_key": -1,
+          "summary": "公休",
+          "location": "",
+          "note": ""
+        },
+        {
+          "time": "10:00〜11:00",
+          "all_day": false,
+          "sort_key": 600,
+          "summary": "桜並木202205八月の家賃はどうなってる？",
+          "location": "",
+          "note": ""
+        }
+      ]
+    }
+  ]
+}

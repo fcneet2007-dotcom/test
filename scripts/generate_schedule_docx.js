@@ -134,7 +134,7 @@ const doc = new Document({
         heading: HeadingLevel.HEADING_1,
         alignment: AlignmentType.CENTER,
         spacing: { after: 60 },
-        children: [text(`${data.year}年${data.month}月 予定表`, { bold: true, size: 32 })],
+        children: [text(data.title || `${data.year}年${data.month}月 予定表`, { bold: true, size: 32 })],
       }),
       para(`Google カレンダーより作成 ／ 予定 ${data.total_events} 件 ／ 作成日 ${data.generated_at}`,
         { alignment: AlignmentType.CENTER, size: 18, color: COLOR.muted, after: 180 }),

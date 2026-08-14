@@ -2,9 +2,14 @@
 """Google カレンダーの list_events 出力(JSON)を Word 生成用のデータに整形する。
 
 使い方:
+    # 月間の予定表
     python scripts/build_schedule_data.py --year 2026 --month 8 \
         --events page1.json page2.json --holidays holiday.json \
         --out output/schedule_data.json
+
+    # 1 日分の予定表
+    python scripts/build_schedule_data.py --day 2026-08-14 \
+        --events today.json --out output/day_data.json
 """
 
 import argparse
@@ -71,7 +76,7 @@ def clean_note(description):
     return text if len(text) <= 80 else text[:79] + "…"
 
 
-def build(year, month, event_paths, holiday_paths):
+def build(year, month, event_paths, holiday_paths, only_day=None):
     holidays = {}
     for holiday in load_events(holiday_paths):
         for day in normalize(holiday)["days"]:
@@ -86,8 +91,9 @@ def build(year, month, event_paths, holiday_paths):
             if day.year == year and day.month == month:
                 by_day.setdefault(day, []).append(item)
 
+    day_range = [only_day.day] if only_day else range(1, calendar.monthrange(year, month)[1] + 1)
     days = []
-    for day_num in range(1, calendar.monthrange(year, month)[1] + 1):
+    for day_num in day_range:
         day = date(year, month, day_num)
         items = sorted(by_day.get(day, []), key=lambda i: (i["sort_key"], i["summary"]))
         seen, unique = set(), []
@@ -107,9 +113,14 @@ def build(year, month, event_paths, holiday_paths):
         })
 
     total = sum(len(d["events"]) for d in days)
+    if only_day:
+        title = f"{year}年{month}月{only_day.day}日({days[0]['weekday']}) 予定表"
+    else:
+        title = f"{year}年{month}月 予定表"
     return {
         "year": year,
         "month": month,
+        "title": title,
         "generated_at": datetime.now().strftime("%Y-%m-%d"),
         "total_events": total,
         "busiest": max(days, key=lambda d: len(d["events"]))["date"] if total else "",
@@ -119,14 +130,23 @@ def build(year, month, event_paths, holiday_paths):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--year", type=int, required=True)
-    parser.add_argument("--month", type=int, required=True)
+    parser.add_argument("--year", type=int)
+    parser.add_argument("--month", type=int)
+    parser.add_argument("--day", help="1 日分だけ出力する場合の日付 (YYYY-MM-DD)")
     parser.add_argument("--events", nargs="+", required=True)
     parser.add_argument("--holidays", nargs="*", default=[])
     parser.add_argument("--out", required=True)
     args = parser.parse_args()
 
-    data = build(args.year, args.month, args.events, args.holidays)
+    only_day = date.fromisoformat(args.day) if args.day else None
+    if only_day:
+        year, month = only_day.year, only_day.month
+    elif args.year and args.month:
+        year, month = args.year, args.month
+    else:
+        parser.error("--day か --year/--month のどちらかを指定してください")
+
+    data = build(year, month, args.events, args.holidays, only_day)
     with open(args.out, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
     print(f"{args.out}: {data['total_events']} 件 / {len(data['days'])} 日")

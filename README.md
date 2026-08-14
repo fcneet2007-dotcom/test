@@ -56,3 +56,16 @@ Google カレンダーの予定を Word 文書（.docx）の月間予定表に�
 - 終日予定の終了日はカレンダー API 上は排他的（翌日 00:00）なので、
   整形時に 1 日戻して実際の最終日に合わせています。
 - 同じ時間・同じタイトルの重複予定は 1 件にまとめています。
+
+## 1 日分の予定表
+
+`--day` を指定すると、その日だけの予定表を作成します。
+
+```bash
+python3 scripts/build_schedule_data.py --day 2026-08-14 \
+  --events today.json --holidays holidays.json \
+  --out output/day_2026-08-14.json
+node scripts/generate_schedule_docx.js output/day_2026-08-14.json "output/2026年08月14日_予定表.docx"
+```
+
+見出しは `2026年8月14日(金) 予定表` のように曜日つきになります。
